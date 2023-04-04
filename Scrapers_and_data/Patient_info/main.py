@@ -17,6 +17,7 @@ already_crawled = set()
 def data_dump():
     counter = 0
     with open ("Scrapers_and_data/Patient_info/forum_posts_links.json", "w") as f:
+        
         for forum_iter in forum_iterator[695: ]:
             if forum_iter['forum_url'] in already_crawled:
                 continue
@@ -27,6 +28,7 @@ def data_dump():
             forum_posts = web_iterator(forum_iter)
             json.dump(forum_posts,f)
             f.write('\n')
+    f.close()     
     
 
 data_dump()
